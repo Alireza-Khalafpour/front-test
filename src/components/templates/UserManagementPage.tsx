@@ -13,6 +13,7 @@ import LogoutButton from "../modules/LogoutButton";
 import CreateUserModal from "../modules/CreateUserModal";
 import UpdateUserModal from "../modules/UpdateUserModal";
 import { DeleteForever, Edit } from "@mui/icons-material";
+import Image from "next/image";
 
 interface users {
   id: number;
@@ -126,12 +127,13 @@ const UserManagementPage = () => {
               gap: '1rem',
             }}
           >
-            <img
+            <Image
               alt="avatar"
-              height={30}
+              height={90}
+              width={90}
               src={row.original.avatar}
               loading="lazy"
-              style={{ borderRadius: '50%' }}
+              className="rounded-full"
             />
           </Box>
         ),
@@ -236,7 +238,7 @@ const UserManagementPage = () => {
     onPaginationChange: setPagination,
     // handle context menu actions --------------
     enableCellActions: true,
-    renderCellActionMenuItems: ({ closeMenu, cell, row, table }) => [
+    renderCellActionMenuItems: ({ closeMenu, row, table }) => [
       <MRT_ActionMenuItem
         icon={<Edit />}
         key={1}
