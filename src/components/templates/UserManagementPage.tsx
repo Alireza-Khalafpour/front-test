@@ -8,7 +8,7 @@ import {
   type MRT_ColumnDef,
 } from "material-react-table";
 import axios from "axios";
-import { Alert, Divider, MenuItem, Typography } from "@mui/material";
+import { Alert, Box, Divider, MenuItem, Typography } from "@mui/material";
 import LogoutButton from "../modules/LogoutButton";
 import CreateUserModal from "../modules/CreateUserModal";
 import UpdateUserModal from "../modules/UpdateUserModal";
@@ -117,6 +117,29 @@ const UserManagementPage = () => {
         accessorKey: "avatar",
         header: "عکس",
         size: 150,
+
+        Cell: ({ row }) => (
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+            }}
+          >
+            <img
+              alt="avatar"
+              height={30}
+              src={row.original.avatar}
+              loading="lazy"
+              style={{ borderRadius: '50%' }}
+            />
+          </Box>
+        ),
+
+
+
+
+        
       },
     ],
     []
